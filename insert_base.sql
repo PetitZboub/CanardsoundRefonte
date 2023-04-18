@@ -2,23 +2,26 @@ USE Canardsound;
 
 INSERT INTO Utilisateurs (nom, prenom, email, mot_de_passe, est_admin)
 VALUES
-('Dupont', 'Jean', 'jean.dupont@email.com', 'motdepasse1', 0),
-('Martin', 'Pierre', 'pierre.martin@email.com', 'motdepasse2', 0),
-('Leroy', 'Sophie', 'sophie.leroy@email.com', 'motdepasse3', 0);
+('Enzo', 'Rouch', 'enzo.rouch@lycee-pardailhan.fr', 'btssio32', 1),
+('Hadrien', 'Ah-Kang', 'hadrien.ah-kang@lycee-pardailhan.fr', 'btssio32', 1),
+('Aaron', 'Sall', 'aaron.sall@lycee-pardailhan.fr', 'btssio32', 1),
+('Red', 'Hot', 'redhotchilipeppers@email.com', 'motdepasse1', 0),
+('Milky', 'Chance', 'milkychance@email.com', 'motdepasse2', 0),
+('Massive', 'Attack', 'massiveattack@email.com', 'motdepasse3', 0);
 
 
 INSERT INTO Titres (titre, artiste, url_musique, utilisateur_id)
 VALUES
-('Californication', 'Red Hot Chili Peppers', '', 1),
-('Scar Tissue', 'Red Hot Chili Peppers', '', 1),
-('Stolen Dance', 'Milky Chance', '', 2),
-('Cocoon', 'Milky Chance', '', 2),
-('Teardrop', 'Massive Attack', '', 3),
-('Angel', 'Massive Attack', '', 3),
-('Come Together', 'The Beatles', '', 1),
-('Lucy in the Sky with Diamond', 'The Beatles', '', 1),
-('My Friend Dario', 'Vitalic', '', 2),
-('Poney Part 1', 'Vitalic', ''; 2);
+('Californication', 'Red Hot Chili Peppers', 'mp3/Californication.mp3', 1),
+('Scar Tissue', 'Red Hot Chili Peppers', 'mp3/Scar_Tissue.mp3', 1),
+('Stolen Dance', 'Milky Chance', 'mp3/Stolen_Dance.mp3', 2),
+('Cocoon', 'Milky Chance', 'mp3/Cocoon.mp3', 2),
+('Teardrop', 'Massive Attack', 'mp3/Teardrop.mp3', 3),
+('Angel', 'Massive Attack', 'mp3/Angel.mp3', 3),
+('Come Together', 'The Beatles', 'mp3/Come_Together.mp3', 1),
+('Lucy in the Sky with Diamond', 'The Beatles', 'mp3/Lucy_In_The_Sky_With_Diamonds.mp3', 1),
+('Poney Part 1', 'Vitalic', 'mp3/Poney_part_1.mp3', 2),
+('Stamina', 'Vitalic', 'mp3/Stamina.mp3'; 2);
 
 
 INSERT INTO CoverAlbum (titre_album, url_image)
@@ -30,6 +33,6 @@ VALUES
 ('Teardrop', 'img/teardrop.jpg'),
 ('Angel', 'img/Angel.jpg'),
 ('Come Together', 'img/come_together.jpg'),
-('Sgt. Peppers Lonely Hearts Club Band', 'img/Sgt_Peppers_Lonely_Hearts_Club_Band.jpg'),
-('OK Cowboy', 'img/ok_cowboy.jpg'),
-('Flashmob', 'img/flashmob.jpg');
+('Lucy in the Sky with Diamond', 'img/Sgt_Peppers_Lonely_Hearts_Club_Band.jpg'),
+('Poney Part 1', 'img/ok_cowboy.jpg'),
+('Stamina', 'img/rave_age.jpg');
