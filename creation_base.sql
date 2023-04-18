@@ -17,8 +17,11 @@ CREATE TABLE Titres (
     artiste VARCHAR(255) NOT NULL,
     url_musique VARCHAR(255) NOT NULL,
     utilisateur_id INT,
-    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id)
+    cover_album_id INT,
+    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id),
+    FOREIGN KEY (cover_album_id) REFERENCES CoverAlbum(id)
 );
+
 
 CREATE TABLE CoupsDeCoeur (
     id INT AUTO_INCREMENT PRIMARY KEY,
