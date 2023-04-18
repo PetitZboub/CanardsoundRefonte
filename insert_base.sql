@@ -23,7 +23,7 @@ VALUES
 ('Come Together', 'The Beatles', 'mp3/Come_Together.mp3', 7,7),
 ('Lucy in the Sky with Diamond', 'The Beatles', 'mp3/Lucy_In_The_Sky_With_Diamonds.mp3', 7,8),
 ('Poney Part 1', 'Vitalic', 'mp3/Poney_part_1.mp3', 8,9),
-('Stamina', 'Vitalic', 'mp3/Stamina.mp3'; 8,10);
+('Stamina', 'Vitalic', 'mp3/Stamina.mp3', 8,10);
 
 
 INSERT INTO CoverAlbum (titre_album, url_image)

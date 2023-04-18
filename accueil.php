@@ -19,7 +19,7 @@
             $pdo = new PDO('mysql:host=localhost;dbname=canardsound', 'root', '');
 
             // Récupération des 5 musiques aléatoires
-            $requete = $pdo->query('SELECT * FROM titres JOIN coverclbum ON titres.cover_album_id = coveralbum.id ORDER BY RAND() LIMIT 5');
+            $requete = $pdo->query('SELECT * FROM titres JOIN coveralbum ON titres.cover_album_id = coveralbum.id ORDER BY RAND() LIMIT 5');
             $musiques = $requete->fetchAll();
             $requete->closeCursor();
 
@@ -28,7 +28,7 @@
                 echo '<div class="musiques-liste">';
                 foreach ($musiques as $musique) {
                     echo '<div class="musique">';
-                    echo '<img class="cover" src="' . $musique['coveralbum'] . '">';
+                    echo '<img class="cover" src="' . $musique['url_image'] . '">';
                     echo '<h3>' . $musique['titre'] . '</h3>';
                     echo '<p>' . $musique['artiste'] . '</p>';
                     echo '<button class="play-button" onclick="togglePlayPause()' . $musique['id'] . ')">Lire</button>';
