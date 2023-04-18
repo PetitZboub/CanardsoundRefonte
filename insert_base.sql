@@ -7,21 +7,23 @@ VALUES
 ('Aaron', 'Sall', 'aaron.sall@lycee-pardailhan.fr', 'btssio32', 1),
 ('Red', 'Hot', 'redhotchilipeppers@email.com', 'motdepasse1', 0),
 ('Milky', 'Chance', 'milkychance@email.com', 'motdepasse2', 0),
-('Massive', 'Attack', 'massiveattack@email.com', 'motdepasse3', 0);
+('Massive', 'Attack', 'massiveattack@email.com', 'motdepasse3', 0),
+('Paul', 'McCartney', 'thebeatles@email.com', 'motdepasse3', 0),
+('Vitalic', 'Vitalic', 'Vitalic@email.com', 'motdepasse3', 0);
 
 
 INSERT INTO Titres (titre, artiste, url_musique, utilisateur_id)
 VALUES
-('Californication', 'Red Hot Chili Peppers', 'mp3/Californication.mp3', 1),
-('Scar Tissue', 'Red Hot Chili Peppers', 'mp3/Scar_Tissue.mp3', 1),
-('Stolen Dance', 'Milky Chance', 'mp3/Stolen_Dance.mp3', 2),
-('Cocoon', 'Milky Chance', 'mp3/Cocoon.mp3', 2),
-('Teardrop', 'Massive Attack', 'mp3/Teardrop.mp3', 3),
-('Angel', 'Massive Attack', 'mp3/Angel.mp3', 3),
-('Come Together', 'The Beatles', 'mp3/Come_Together.mp3', 1),
-('Lucy in the Sky with Diamond', 'The Beatles', 'mp3/Lucy_In_The_Sky_With_Diamonds.mp3', 1),
-('Poney Part 1', 'Vitalic', 'mp3/Poney_part_1.mp3', 2),
-('Stamina', 'Vitalic', 'mp3/Stamina.mp3'; 2);
+('Californication', 'Red Hot Chili Peppers', 'mp3/Californication.mp3', 4),
+('Scar Tissue', 'Red Hot Chili Peppers', 'mp3/Scar_Tissue.mp3', 4),
+('Stolen Dance', 'Milky Chance', 'mp3/Stolen_Dance.mp3', 5),
+('Cocoon', 'Milky Chance', 'mp3/Cocoon.mp3', 5),
+('Teardrop', 'Massive Attack', 'mp3/Teardrop.mp3', 6),
+('Angel', 'Massive Attack', 'mp3/Angel.mp3', 6),
+('Come Together', 'The Beatles', 'mp3/Come_Together.mp3', 7),
+('Lucy in the Sky with Diamond', 'The Beatles', 'mp3/Lucy_In_The_Sky_With_Diamonds.mp3', 7),
+('Poney Part 1', 'Vitalic', 'mp3/Poney_part_1.mp3', 8),
+('Stamina', 'Vitalic', 'mp3/Stamina.mp3'; 8);
 
 
 INSERT INTO CoverAlbum (titre_album, url_image)
