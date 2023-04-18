@@ -19,7 +19,7 @@
             $pdo = new PDO('mysql:host=localhost;dbname=canardsound', 'root', '');
 
             // Récupération des 5 musiques aléatoires
-            $requete = $pdo->query('SELECT * FROM titres JOIN  ORDER BY RAND() LIMIT 5');
+            $requete = $pdo->query('SELECT * FROM titres JOIN CoverAlbum ON Titres.cover_album_id = CoverAlbum.id ORDER BY RAND() LIMIT 5');
             $musiques = $requete->fetchAll();
             $requete->closeCursor();
 
