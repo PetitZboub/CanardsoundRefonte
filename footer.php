@@ -1,16 +1,26 @@
 <footer>
+<div class="footer">
+  <audio id="audioPlayer" src=""></audio>
+  <div class="player-controls">
+    <button class="previous-button" onclick="previousTrack()">Précédent</button>
+    <button class="play-pause-button" onclick="playPauseTrack()">Lecture</button>
+    <button class="next-button" onclick="nextTrack()">Suivant</button>
+  </div>
+  <div class="coup-de-coeur-controls">
+    <?php
+    if (isset($_SESSION['utilisateur'])) {
+      echo '<button id="coup-de-coeur-button" onclick="addCoupDeCoeur()">Ajouter aux coups de cœur</button>';
+      echo '<a href="signalement.php?id=' . $_SESSION['musiqueEnCours']['id'] . '">Signaler une musique</a>';
+    }
+    ?>
+  </div>
+</div>
+
+<!--
   <div class="footer">
     <script>
-      $("#player4").MusicPlayer({
-        type: "audio",
-        title: "Black Beatles",
-        artist: "Rae Sremmurd ft. Gucci Mane",
-        track_URL: "mp3/Lucy_In_The_Sky_With_Diamonds.mp3",
-        downloadable: "true",
-        apple_music: "https://itunes.apple.com/us/music-video/black-beatles-feat.-gucci/id1157185228",
-        amazon_music: "https://www.amazon.com/Black-Beatles-feat-Gucci-Clean/dp/B01E7RX5QW",
-        extra_purchase: "https://play.spotify.com/track/21xJVN5wEbJogczYxfZhqR"
-      });
-    </script>
+      
+  </script>
   </div>
+-->  
 </footer>
