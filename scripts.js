@@ -1,101 +1,135 @@
-// JavaScript pour l'affichage aléatoire de 5 musiques sur la page d'accueil (acceuil.html)
-function displayRandomSongs() {
-    const container = document.getElementById('random-songs-container');
-    // Remplacez cette liste par les données récupérées de la base de données
-    const songs = [
-        { id: 1, title: 'Song 1', artist: 'Artist 1', album: 'Album 1', cover: 'cover1.jpg' },
-        { id: 2, title: 'Song 2', artist: 'Artist 2', album: 'Album 2', cover: 'cover2.jpg' },
-        { id: 3, title: 'Song 3', artist: 'Artist 3', album: 'Album 3', cover: 'cover3.jpg' },
-        { id: 4, title: 'Song 4', artist: 'Artist 4', album: 'Album 4', cover: 'cover4.jpg' },
-        { id: 5, title: 'Song 5', artist: 'Artist 5', album: 'Album 5', cover: 'cover5.jpg' },
-    ];
+  //<!--
+		/*Faire fonctionner le lecteur audio*/
+		function playsong(id) {
+			$('#lecteuraudio_'+id).trigger('play');
+			$('#audiocommand_play').css('display', 'none');
+			$('#audiocommand_pause').css('display', 'inline-block');
+		}
 
-    const randomSongs = [];
-    while (randomSongs.length < 5) {
-        const randomIndex = Math.floor(Math.random() * songs.length);
-        if (!randomSongs.includes(songs[randomIndex])) {
-            randomSongs.push(songs[randomIndex]);
-        }
-    }
+		/*Mettre le lecteur audio sur pause*/
+		function pausesong(id) {
+			$('#lecteuraudio_'+id).trigger('pause');
+			$('#audiocommand_pause').css('display', 'none');
+			$('#audiocommand_play').css('display', 'inline-block');
+		}
 
-    randomSongs.forEach(song => {
-        const songElement = document.createElement('div');
-        songElement.classList.add('song');
-        songElement.innerHTML = `
-            <img src="${song.cover}" alt="${song.title} - ${song.artist}" />
-            <h3>${song.title}</h3>
-            <h4>${song.artist}</h4>
-            <p>${song.album}</p>
-        `;
-        container.appendChild(songElement);
-    });
-}
+		/*Mettre la chanson du lecteur audio en repeat*/
+		function loopsongstart(id) {
+			$('#lecteuraudio_'+id).attr('loop', 'loop');
+			$('#audiocommand_loopstart').css('display', 'none');
+			$('#audiocommand_loopstop').css('display', 'inline-block');
+		}
 
-displayRandomSongs();
-let audio = '/mp3/Californication.mp3'; //document.getElementById('/mp3/Californication.mp3');
-console.log(audio);
-let playPauseButton = document.getElementById('play-pause');
-let isPlaying = false;
+		/*Enlever le repeat de la chanson du lecteur*/
+		function loopsongstop(id) {
+			$('#lecteuraudio_'+id).removeAttr('loop');
+			$('#audiocommand_loopstop').css('display', 'none');
+			$('#audiocommand_loopstart').css('display', 'inline-block');
+		}
 
-function togglePlayPause() {
-    if (isPlaying) {
-        audio.pause();
-        playPauseButton.innerText = 'Play';
-    } else {
-        audio.play();
-        playPauseButton.innerText = 'Pause';
-    }
-    isPlaying = !isPlaying;
-}
+		/*Passer à la chanson suivante*/
+		function nextsong(id) {
+			var src_music;
+			var name_music;
+			var next_song;
+			var lecteur = $('#lecteuraudio_'+id);
+			next_song = $('#current_song').parent().next().find('.music_song:first');
+			if (next_song.length != 1) {
+				next_song = $('.music_song:eq(0)');
+			}
+			$('#current_song').removeAttr('id');
+			$('#current_songline').removeAttr('id');
+			next_song.attr('id', 'current_song');
+			next_song.parent().attr('id', 'current_songline');
+			src_music = next_song.attr('data-music-src');
+			lecteur.attr('src', src_music);
+			lecteur.attr('autoplay', 'autoplay');
+			lecteur.load();
+			$('#audiocommand_time').attr('max', $('#lecteuraudio')[0].duration);
+		}
 
-function previousTrack() {
-    currentTrackIndex--;
-    if (currentTrackIndex < 0) {
-        currentTrackIndex = playlist.length - 1;
-    }
-    loadTrack(currentTrackIndex);
-    playTrack();
-}
+		/*Changer de musique au click + Barre de temps*/
+		$(function () {
+			var lecteur = $('#lecteuraudio');
+			var src_music;
+			var next_song;
 
-function nextTrack() {
-    currentTrackIndex++;
-    if (currentTrackIndex >= playlist.length) {
-        currentTrackIndex = 0;
-    }
-    loadTrack(currentTrackIndex);
-    playTrack();
-}
+			/*Changer de musique au click*/
+			$('.music_song').click(function () {
+				src_music = $(this).attr('data-music-src');
+				$('#current_song').removeAttr('id');
+				$('#current_songline').removeAttr('id');
+				$(this).attr('id', 'current_song');
+				$(this).parent().attr('id', 'current_songline');
+				lecteur.attr('src', src_music);
+				lecteur.attr('autoplay', 'autoplay');
+				$('#audiocommand_play').css('display', 'none');
+				$('#audiocommand_pause').css('display', 'inline-block');
+				lecteur.load();
+				$('#audiocommand_time').attr('max', $('#lecteuraudio')[0].duration);
+			});
 
-audio.addEventListener('ended', function () {
-    nextTrack();
-});
 
-function addCoupDeCoeur() {
-    let musique_id = document.getElementById('audioPlayer').dataset.musiqueId;
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', 'ajouter_coup_de_coeur.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-        if (xhr.status === 200) {
-          alert('La musique a été ajoutée aux coups de cœur !');
-        } else {
-          alert('Une erreur est survenue lors de l\'ajout de la musique aux coups de cœur.');
-        }
-      }
-    };
-    xhr.send('musique_id=' + musique_id);
-  }
-  
-  function Play_Pause(){
-    $("#player4").MusicPlayer({
-        type: "audio",
-        title: "Black Beatles",
-        artist: "Rae Sremmurd ft. Gucci Mane",
-        track_URL: "mp3/Lucy_In_The_Sky_With_Diamonds.mp3",
-        downloadable: "true",
-        apple_music: "https://itunes.apple.com/us/music-video/black-beatles-feat.-gucci/id1157185228",
-        amazon_music: "https://www.amazon.com/Black-Beatles-feat-Gucci-Clean/dp/B01E7RX5QW",
-        extra_purchase: "https://play.spotify.com/track/21xJVN5wEbJogczYxfZhqR"
-      });
-  }
+			/*Mettre le volume à la valeur choisie*/
+			$('#lecteuraudio')[0].volume = $('#audiocommand_volume').val() / 10;
+
+			/*Changer le volume*/
+			$('#audiocommand_volume').on('change', function () {
+				$('#lecteuraudio')[0].volume = $('#audiocommand_volume').val() / 10;
+			});
+
+			/*Au changement de volume - changement icône*/
+			$('#lecteuraudio').on('volumechange', function () {
+				if ($('#lecteuraudio')[0].volume * 10 > 7) {
+					$('#audiocommand_volume_full').css('display', 'inline-block');
+					$('#audiocommand_volume_middle').css('display', 'none');
+					$('#audiocommand_volume_low').css('display', 'none');
+					$('#audiocommand_volume_off').css('display', 'none');
+				}
+				else if ($('#lecteuraudio')[0].volume * 10 > 3) {
+					$('#audiocommand_volume_full').css('display', 'none');
+					$('#audiocommand_volume_middle').css('display', 'inline-block');
+					$('#audiocommand_volume_low').css('display', 'none');
+					$('#audiocommand_volume_off').css('display', 'none');
+				}
+				else if ($('#lecteuraudio')[0].volume * 10 > 0) {
+					$('#audiocommand_volume_full').css('display', 'none');
+					$('#audiocommand_volume_middle').css('display', 'none');
+					$('#audiocommand_volume_low').css('display', 'inline-block');
+					$('#audiocommand_volume_off').css('display', 'none');
+				}
+				else {
+					$('#audiocommand_volume_full').css('display', 'none');
+					$('#audiocommand_volume_middle').css('display', 'none');
+					$('#audiocommand_volume_low').css('display', 'none');
+					$('#audiocommand_volume_off').css('display', 'inline-block');
+				}
+			});
+
+
+			/*Mettre la durée totale de la chanson sur la barre de temps*/
+			$('#lecteuraudio').on('loadedmetadata', function () {
+				$('#audiocommand_time').attr('max', $('#lecteuraudio')[0].duration);
+			});
+
+			/*Changer la position de la chanson quand on bouge le pointeur de la ligne de temps*/
+			$('#audiocommand_time').on('change', function () {
+				$('#lecteuraudio')[0].currentTime = $('#audiocommand_time').val();
+				$('#audiocommand_time').attr('max', $('#lecteuraudio')[0].duration);
+			});
+
+			/*Faire avancer la barre de temps*/
+			$('#lecteuraudio').on('timeupdate', function () {
+				var curtime = parseInt($('#lecteuraudio')[0].currentTime, 10);
+				$('#audiocommand_time').val(curtime);
+				$('#audio_time').html(formatTime(curtime));
+				function formatTime(seconds) {
+					minutes = Math.floor(seconds / 60);
+					seconds = Math.floor(seconds % 60);
+					seconds = (seconds >= 10) ? seconds : "0" + seconds;
+					return minutes + ":" + seconds;
+				}
+			});
+
+		});
+      //-->

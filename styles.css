@@ -190,3 +190,288 @@ header {
   a:hover {
     color: rgb(233, 73, 10);
   }
+
+  
+  body {
+    margin: 0px;
+  }
+
+  /*Bloc qui contient tout*/
+  #audiobloc {
+    width: 300px;
+    margin: auto;
+    position: relative;
+    background: #a3a3a3;
+    border: 1px solid #858585;
+    font-size: 14px;
+    font-family: 'Times New Roman';
+  }
+
+  /*Bloc des commandes du lecteur*/
+  #audiocommands {
+    padding: 10px 0px 10px 10px;
+    text-align: left;
+    height: 14px;
+    color: #656565;
+  }
+
+  /*Quand on passe sur les images de commandes*/
+  #audiocommands img {
+    cursor: pointer;
+  }
+
+  /*Bouton repeat*/
+  #audiocommand_loopstart {
+    opacity: 0.5;
+    margin-left: 5px;
+  }
+
+  /*Bouton repeat survolé*/
+  #audiocommand_loopstart:hover {
+    opacity: 1;
+    margin-left: 5px;
+  }
+
+  /*Bouton arrêter le repeat*/
+  #audiocommand_loopstop {
+    margin-left: 5px;
+  }
+
+  /*Bloc du temps en chiffres*/
+  #audio_time {
+    display: inline-block;
+    margin-left: 5px;
+    width: 31px;
+    margin-top: 1px;
+    text-align: left;
+    height: 13px;
+    line-height: 13px;
+    vertical-align: top;
+    font-size: 13px;
+    font-family: 'Times New Roman';
+  }
+
+  /*Espace à gauche de la barre de temps*/
+  #audiocommand_time {
+    margin-left: 0px;
+  }
+
+  /*Liste des chansons*/
+  #musiclist {
+    max-height: 100px;
+    /*Hauteur maximale de la liste des chansons*/
+    overflow: auto;
+    border-bottom: 1px solid #858585;
+  }
+
+  /*Ligne de chaque chanson*/
+  .music_line {
+    text-align: left;
+    padding: 1px 5px 1px 5px;
+    border-bottom: 1px dotted #858585;
+    background: #c4c4c4;
+    color: #757575;
+  }
+
+  .music_line:nth-last-of-type(1) {
+    border: none;
+  }
+
+  /*Ligne survolée des chansons*/
+  .music_line:hover {
+    background: #dfdfdf;
+  }
+
+  /*Titre des chansons*/
+  .music_song {
+    cursor: pointer;
+  }
+
+  /*La ligne de la chanson active*/
+  #current_songline {
+    background: #dfdfdf;
+    color: #656565;
+  }
+
+  /*Enlever le style de base de la barre de temps pour mettre notre propre style*/
+  input[type=range] {
+    display: inline-block;
+    vertical-align: top;
+    -webkit-appearance: none;
+    width: 175px;
+    height: 12px;
+    background: transparent;
+    padding: 0px;
+    margin-top: 1px;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  input[type=range]:focus {
+    outline: none;
+  }
+
+  input[type=range]::-ms-track {
+    width: 175px;
+    vertical-align: top;
+    display: inline-block;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    padding: 0px;
+  }
+
+  /*Bouton de la barre de temps*/
+  /*Pour Chrome*/
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 12px;
+    width: 12px;
+    margin: -4px;
+    border-radius: 50%;
+    background: #757575;
+    cursor: pointer;
+  }
+
+  /*Pour Firefox*/
+  input[type=range]::-moz-range-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #757575;
+    font-size: 0px;
+    cursor: pointer;
+  }
+
+  /*Pour Internet Explorer*/
+  input[type=range]::-ms-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #757575;
+    cursor: pointer;
+  }
+
+  /*Barre de temps*/
+  /*Pour Chrome*/
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 175px;
+    height: 4px;
+    cursor: pointer;
+    background: #c1c1c1;
+    border-radius: 2px;
+    margin: 1px;
+  }
+
+  /*Pour Firefox*/
+  input[type=range]::-moz-range-track {
+    width: 175px;
+    height: 4px;
+    cursor: pointer;
+    background: #c1c1c1;
+    border-radius: 2px;
+  }
+
+  /*Pour Internet Explorer - Toutes la ligne de temps*/
+  input[type=range]::-ms-track {
+    width: 175px;
+    height: 12px;
+    cursor: pointer;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+  }
+
+  /*Pour Internet Explorer - Partie avant le bouton de la ligne de temps*/
+  input[type=range]::-ms-fill-lower {
+    width: 175px;
+    height: 4px;
+    cursor: pointer;
+    background: #c1c1c1;
+    border-radius: 2px 0px 0px 2px;
+    border: none;
+  }
+
+  /*Pour Internet Explorer - Partie après le bouton de la ligne de temps*/
+  input[type=range]::-ms-fill-upper {
+    width: 175px;
+    height: 4px;
+    cursor: pointer;
+    background: #c1c1c1;
+    border-radius: 0px 2px 2px 0px;
+    border: none;
+  }
+
+  /*Bloc volume*/
+  #audiocommand_volume_bloc {
+    display: inline-bloc;
+    margin-left: 5px;
+    width: 14px;
+    height: 14px;
+    position: relative;
+  }
+
+  /*Image volume*/
+  #audiocommand_volume_bloc img {
+    width: 14px;
+    height: 14px;
+  }
+
+  /*Bloc barre volume*/
+  #audiocommand_volume_rangebloc {
+    position: absolute;
+    display: none;
+    bottom: 51px;
+    left: -37px;
+    background: #a3a3a3;
+    border: 1px solid #858585;
+    width: 80px;
+    padding: 3px;
+    height: 12px;
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
+
+  /*Apparition barre volume*/
+  #audiocommand_volume_bloc:hover #audiocommand_volume_rangebloc {
+    display: block;
+  }
+
+  /*Barre de volume*/
+  /*Pour Chrome*/
+  #audiocommand_volume {
+    width: 80px;
+    margin: 0px;
+  }
+
+  #audiocommand_volume[type=range]::-webkit-slider-runnable-track {
+    width: 80px;
+  }
+
+  /*Pour Firefox*/
+  #audiocommand_volume[type=range]::-moz-range-track {
+    width: 80px;
+  }
+
+  /*Pour Internet Explorer*/
+  #audiocommand_volume[type=range]::-ms-track {
+    width: 80px;
+  }
+
+  /*Pour Internet Explorer - Partie avant le bouton*/
+  #audiocommand_volume[type=range]::-ms-fill-lower {
+    width: 80px;
+  }
+
+  /*Pour Internet Explorer - Partie après le bouton*/
+  #audiocommand_volume[type=range]::-ms-fill-upper {
+    width: 80px;
+  }

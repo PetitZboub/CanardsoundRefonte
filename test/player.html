@@ -1,0 +1,61 @@
+!DOCTYPE
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        console.clear();
+
+        class musicPlayer {
+            constructor() {
+                this.play = this.play.bind(this);
+                this.playBtn = document.getElementById('play');
+                this.playBtn.addEventListener('click', this.play);
+                this.controlPanel = document.getElementById('control-panel');
+                this.infoBar = document.getElementById('info');
+            }
+
+            play() {
+                let controlPanelObj = this.controlPanel,
+                    infoBarObj = this.infoBar
+                Array.from(controlPanelObj.classList).find(function (element) {
+                    return element !== "active" ? controlPanelObj.classList.add('active') : controlPanelObj.classList.remove('active');
+                });
+
+                Array.from(infoBarObj.classList).find(function (element) {
+                    return element !== "active" ? infoBarObj.classList.add('active') : infoBarObj.classList.remove('active');
+                });
+            }
+        }
+
+        const newMusicplayer = new musicPlayer();
+    </script>
+</head>
+
+<body>
+    <div class="player">
+        <div id="info" class="info">
+            <span class="artist">Flume</span>
+            <span class="name">Say it</span>
+            <div class="progress-bar">
+                <div class="bar"></div>
+            </div>
+        </div>
+        <div id="control-panel" class="control-panel">
+            <div class="album-art"></div>
+            <div class="controls">
+                <div class="prev"></div>
+                <div id="play" class="play"></div>
+                <div class="next"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

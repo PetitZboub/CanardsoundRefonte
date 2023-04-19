@@ -1,6 +1,5 @@
 
 <header>
-<link rel="stylesheet" href="style.css">
   <div class="logo">
     <img src="img/logo.png" alt="Logo">
   </div>
