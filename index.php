@@ -29,10 +29,10 @@
 		<!-- COMMANDES DU LECTEUR AUDIO -->
 		<div id="audiocommands">
 			<!-- COMMANDE PLAY -->
-			<span onclick="playsong()" id="audiocommand_play"><img src="http://www.aht.li/3055457/Play_Gris.png"
+			<span onclick="playsong(<?=$musique['id'] ?>)" id="audiocommand_play"><img src="http://www.aht.li/3055457/Play_Gris.png"
 					alt="Play" /></span>
 			<!-- COMMANDE PAUSE -->
-			<span onclick="pausesong()" id="audiocommand_pause" style="display: none;"><img
+			<span onclick="pausesong(<?=$musique['id'] ?>)" id="audiocommand_pause" style="display: none;"><img
 					src="http://www.aht.li/3055456/Pause_gris.png" alt="Pause" /></span>
 			<!-- TEMPS DE LA CHANSON -->
 			<span id="audio_time">0:00</span>
@@ -53,15 +53,15 @@
 				</span>
 			</span>
 			<!-- COMMANDE RÉPÉTER LA CHANSON -->
-			<span onclick="loopsongstart()" id="audiocommand_loopstart"><img
+			<span onclick="loopsongstart(<?=$musique['id'] ?>)" id="audiocommand_loopstart"><img
 					src="http://www.aht.li/3055455/Loop_gris.png" alt="Repeat" /></span>
 			<!-- COMMANDE ARRÊTER DE RÉPÉTER LA CHANSON -->
-			<span onclick="loopsongstop()" id="audiocommand_loopstop" style="display: none;"><img
+			<span onclick="loopsongstop(<?=$musique['id'] ?>)" id="audiocommand_loopstop" style="display: none;"><img
 					src="http://www.aht.li/3055455/Loop_gris.png" alt="No Repeat" /></span>
 		</div>
 		<!-- FIN COMMANDES DU LECTEUR AUDIO -->
 		<!-- LECTEUR AUDIO -->
-		<audio id="lecteuraudio" preload="none" onended="nextsong()" src="Photograph.mp3"> Votre navigateur ne supporte
+		<audio id="lecteuraudio" preload="none" onended="nextsong(<?=$musique['id'] ?>)" src="Photograph.mp3"> Votre navigateur ne supporte
 			pas ce lecteur audio. </audio>
 		<!-- FIN LECTEUR AUDIO -->
 	</div>

@@ -29,9 +29,9 @@
                 echo '<div class="musiques-liste">';
                 foreach ($musiques as $musique) {
                     echo '<div class="musique">';
-                    echo '<img class="cover" src="' . $musique['url_image'] . '">';
-                    echo '<h3>' . $musique['titre'] . '</h3>';
-                    echo '<p>' . $musique['artiste'] . '</p>';
+                    echo '<img class="cover" src="' . $musiques['url_image'] . '">';
+                    echo '<h3>' . $musiques['titre'] . '</h3>';
+                    echo '<p>' . $musiques['artiste'] . '</p>';
                     include 'player.php';
                 }
                 echo '</div>';

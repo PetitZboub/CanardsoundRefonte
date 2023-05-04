@@ -1,34 +1,34 @@
 //<!--
 		/*Faire fonctionner le lecteur audio*/
-		function playsong() {
+		function playsong(id) {
 			$('#lecteuraudio').trigger('play');
 			$('#audiocommand_play').css('display', 'none');
 			$('#audiocommand_pause').css('display', 'inline-block');
 		}
 
 		/*Mettre le lecteur audio sur pause*/
-		function pausesong() {
+		function pausesong(id) {
 			$('#lecteuraudio').trigger('pause');
 			$('#audiocommand_pause').css('display', 'none');
 			$('#audiocommand_play').css('display', 'inline-block');
 		}
 
 		/*Mettre la chanson du lecteur audio en repeat*/
-		function loopsongstart() {
+		function loopsongstart(id) {
 			$('#lecteuraudio').attr('loop', 'loop');
 			$('#audiocommand_loopstart').css('display', 'none');
 			$('#audiocommand_loopstop').css('display', 'inline-block');
 		}
 
 		/*Enlever le repeat de la chanson du lecteur*/
-		function loopsongstop() {
+		function loopsongstop(id) {
 			$('#lecteuraudio').removeAttr('loop');
 			$('#audiocommand_loopstop').css('display', 'none');
 			$('#audiocommand_loopstart').css('display', 'inline-block');
 		}
 
 		/*Passer à la chanson suivante*/
-		function nextsong() {
+		function nextsong(id) {
 			var src_music;
 			var name_music;
 			var next_song;
