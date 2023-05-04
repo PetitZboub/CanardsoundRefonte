@@ -69,7 +69,7 @@
 	<!-- Foreach titre -->
 	<?foreach ($musiques as $musique){
 		echo '<div class="music_line">';
-		echo '<span data-music-src="' . $musique['url_musique'] . '" class="music_song"> ' . $musique['titre'] . ' <br />';
+		echo '<span data-music-src="' . $musique['titre'] . '" class="music_song"> ' . $musique['titre'] . ' <br />';
 		echo '<img src="' . $musique['url_image'] . '" />';
 		echo '</span>';
 		echo '</div>';
