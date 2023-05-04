@@ -1,38 +1,38 @@
-  //<!--
+//<!--
 		/*Faire fonctionner le lecteur audio*/
-		function playsong(id) {
-			$('#lecteuraudio_'+id).trigger('play');
+		function playsong() {
+			$('#lecteuraudio').trigger('play');
 			$('#audiocommand_play').css('display', 'none');
 			$('#audiocommand_pause').css('display', 'inline-block');
 		}
 
 		/*Mettre le lecteur audio sur pause*/
-		function pausesong(id) {
-			$('#lecteuraudio_'+id).trigger('pause');
+		function pausesong() {
+			$('#lecteuraudio').trigger('pause');
 			$('#audiocommand_pause').css('display', 'none');
 			$('#audiocommand_play').css('display', 'inline-block');
 		}
 
 		/*Mettre la chanson du lecteur audio en repeat*/
-		function loopsongstart(id) {
-			$('#lecteuraudio_'+id).attr('loop', 'loop');
+		function loopsongstart() {
+			$('#lecteuraudio').attr('loop', 'loop');
 			$('#audiocommand_loopstart').css('display', 'none');
 			$('#audiocommand_loopstop').css('display', 'inline-block');
 		}
 
 		/*Enlever le repeat de la chanson du lecteur*/
-		function loopsongstop(id) {
-			$('#lecteuraudio_'+id).removeAttr('loop');
+		function loopsongstop() {
+			$('#lecteuraudio').removeAttr('loop');
 			$('#audiocommand_loopstop').css('display', 'none');
 			$('#audiocommand_loopstart').css('display', 'inline-block');
 		}
 
 		/*Passer à la chanson suivante*/
-		function nextsong(id) {
+		function nextsong() {
 			var src_music;
 			var name_music;
 			var next_song;
-			var lecteur = $('#lecteuraudio_'+id);
+			var lecteur = $('#lecteuraudio');
 			next_song = $('#current_song').parent().next().find('.music_song:first');
 			if (next_song.length != 1) {
 				next_song = $('.music_song:eq(0)');
@@ -132,4 +132,4 @@
 			});
 
 		});
-      //-->
+	  //-->
