@@ -22,24 +22,6 @@ CREATE TABLE Titres (
     FOREIGN KEY (cover_album_id) REFERENCES CoverAlbum(id)
 );
 
-
-CREATE TABLE CoupsDeCoeur (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    utilisateur_id INT,
-    titre_id INT,
-    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id),
-    FOREIGN KEY (titre_id) REFERENCES Titres(id)
-);
-
-CREATE TABLE Signalements (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titre_id INT,
-    utilisateur_id INT,
-    raison TEXT,
-    FOREIGN KEY (titre_id) REFERENCES Titres(id),
-    FOREIGN KEY (utilisateur_id) REFERENCES Utilisateurs(id)
-);
-
 CREATE TABLE CoverAlbum (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titre_album VARCHAR(255) NOT NULL,
