@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Inscription</h1>
+    <center><h1>Inscription</h1></center>
     <?php
         if (isset($_GET['error'])) {
             echo "<p class='error'>" . htmlspecialchars($_GET['error']) . "</p>";
@@ -24,6 +24,7 @@
         <input type="password" name="mot_de_passe" id="mot_de_passe" required>
         <button type="submit">S'inscrire</button>
     </form>
+
 
     <script src="scripts.js"></script>
 </body>

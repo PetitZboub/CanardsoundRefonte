@@ -1,6 +1,12 @@
 <?php
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 // Ajoutez la connexion à la base de données ici
-// $conn = new mysqli($servername, $username, $password, $dbname);
+$servername="localhost";
+$username="root";
+$password="";
+$dbname ="canardsound";
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
@@ -19,7 +25,7 @@ if ($result->num_rows > 0) {
 } else {
     $hashed_password = password_hash($mot_de_passe, PASSWORD_DEFAULT);
 
-    $insert_user = "INSERT INTO Utilisateurs (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)";
+    $insert_user = "INSERT INTO Utilisateurs (nom, prenom, email, mot_de_passe) VALUES (?,?, ?, ?)";
     $stmt = $conn->prepare($insert_user);
     $stmt->bind_param("ssss", $nom, $prenom, $email, $hashed_password);
 
