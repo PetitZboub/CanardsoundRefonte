@@ -13,7 +13,7 @@
   </nav>
  <? 
 if(isset($_SESSION['user_nom'])) {
-    echo "Bonjour, " . $_SESSION['user_nom'] . "!";
+    echo "Bonjour, " . $_SESSION['user_nom'] . " !";
 } 
 ?>
 </header>
